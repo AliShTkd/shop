@@ -11,7 +11,9 @@ Route::prefix('auth')->group(function (){
 
 });
 
+
 Route::group(['middleware' => "auth:api", "prefix" => "admin"], function () {
+
 
     Route::apiResource('brands', \App\Http\Controllers\BrandController::class);
     Route::apiResource('categories',\App\Http\Controllers\CategoryController::class);

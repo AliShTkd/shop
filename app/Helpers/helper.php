@@ -9,9 +9,18 @@ function response_success($result=[],$message=null,$error=null,$status=200)
     ],$status);
 }
 
+function helper_response_main($message=null,$result=null,$error=null,$status=200): \Illuminate\Http\JsonResponse
+{
+    return response()->json([
+        'result' => $result,
+        'message' => $message,
+        'error' => $error,
+    ],$status);
+}
 function helper_response_fetch($result=[]): \Illuminate\Http\JsonResponse
 {
     return helper_response_main('fetch success !',$result);
+    
 }
 
 
