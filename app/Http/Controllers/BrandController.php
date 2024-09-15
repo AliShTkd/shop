@@ -16,8 +16,7 @@ class BrandController extends Controller
 
     public function __construct(BrandInterface $brandRepository)
     {
-        //$this->middleware('generate_fetch_query_params')->only('index');
-        $this->middleware('generate_fetch_query_params')->only('index');
+
         $this->repository = $brandRepository;
     }
     /**

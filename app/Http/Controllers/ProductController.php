@@ -13,9 +13,9 @@ class ProductController extends Controller
 {
     protected ProductInterface $repository;
 
-    public function __construct(Product $productRepository)
+    public function __construct(ProductInterface $productRepository)
     {
-        $this->middleware('generate_fetch_query_params')->only('index');
+        //$this->middleware('generate_fetch_query_params')->only('index');
         $this->repository = $productRepository;
     }
     /**

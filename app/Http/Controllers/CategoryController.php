@@ -15,7 +15,7 @@ class CategoryController extends Controller
 
     public function __construct(CategoryInterface $categoryRepository)
     {
-        $this->middleware('generate_fetch_query_params')->only('index');
+        //$this->middleware('generate_fetch_query_params')->only('index');
         $this->repository = $categoryRepository;
     }
     /**
