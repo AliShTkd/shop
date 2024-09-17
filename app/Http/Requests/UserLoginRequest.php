@@ -25,12 +25,7 @@ class UserLoginRequest extends FormRequest
             'password' => 'required',
         ];
     }
-    public function messages()
-    {
-        return [
-            ""
-        ];
-    }
+
 
     public function failedValidation(Validator $validator)
     {
