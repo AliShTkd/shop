@@ -18,8 +18,10 @@ Route::group(['middleware' => "auth:api", "prefix" => "admin"], function () {
     Route::apiResource('brands', \App\Http\Controllers\BrandController::class)->middleware("generate_fetch_query_params");
     Route::apiResource('categories',\App\Http\Controllers\CategoryController::class)->middleware("generate_fetch_query_params");
     Route::apiResource('products', \App\Http\Controllers\ProductController::class)->middleware("generate_fetch_query_params");
-
+    Route::prefix('products')->as('products.')->group(function () {
+        Route::get('change/activation/{product}',[\App\Http\Controllers\ProductController::class,'change_activation'])->name('change_activation');
+    });
 });
 
 
-?>
+?>`

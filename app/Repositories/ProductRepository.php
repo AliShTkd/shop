@@ -4,14 +4,13 @@ namespace App\Repositories;
 use App\Interfaces\ProductInterface;
 use App\Models\Category;
 use App\Models\Product;
-use App\Resources\Products\ProductIndexResource;
+use App\Http\Resources\Products\ProductIndexResource;
 
 class ProductRepository implements ProductInterface
 {
     public function index(): \Illuminate\Http\JsonResponse
     {
         $data=Product::query();
-        $data->with(['created_user','updated_user']);
         $data->orderBy(request('sort_by'),request('sort_type'));
         return helper_response_fetch(ProductIndexResource::collection($data->paginate(request('per_page')))->resource);
     }

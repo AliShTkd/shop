@@ -1,7 +1,6 @@
 <?php
-namespace App\Resources\Products;
+namespace App\Http\Resources\Products;
 
-use App\Http\Resources\Users\UserRelResource;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
 class ProductIndexResource extends JsonResource
@@ -23,8 +22,6 @@ class ProductIndexResource extends JsonResource
             'sale' => $this->sale,
             'view' => $this->view,
             'is_active' => $this->is_active,
-            'created_by' => new UserRelResource($this->created_user),
-            'updated_by' => new UserRelResource($this->updated_user),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

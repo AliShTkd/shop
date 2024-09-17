@@ -1,16 +1,16 @@
 <?php
 namespace App\Repositories;
 
+use App\Http\Resources\Categories\CategoryIndexResource;
 use App\Interfaces\CategoryInterface;
 use App\Models\Category;
-use App\Resources\Categories\CategoryIndexResource;
+
 
 class CategoryRepository implements CategoryInterface
 {
     public function index(): \Illuminate\Http\JsonResponse
     {
         $data=Category::query();
-        $data->with(['created_user','updated_user']);
         $data->orderBy(request('sort_by'),request('sort_type'));
         return helper_response_fetch(CategoryIndexResource::collection($data->paginate(request('per_page')))->resource);
     }

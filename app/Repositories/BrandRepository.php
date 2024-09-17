@@ -10,7 +10,6 @@ class BrandRepository implements BrandInterface
     public function index(): \Illuminate\Http\JsonResponse
     {
         $data=Brand::query();
-        $data->with(['created_user','updated_user']);
         $data->orderBy(request('sort_by'),request('sort_type'));
         return helper_response_fetch(BrandIndexResource::collection($data->paginate(request('per_page')))->resource);
     }
