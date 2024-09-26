@@ -23,5 +23,9 @@ Route::group(['middleware' => "auth:api", "prefix" => "admin"], function () {
     });
 });
 
+Route::group(['middleware' => "auth:api"], function () {
 
-?>`
+    //Route::get();
+});
+
+?>
